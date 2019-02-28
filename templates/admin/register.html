@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+    {% block page_content %}
+        <div class="page-header">
+            用户注册
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+    {% endfor %}
+        </div>
+{#        {% import 'bootstrap/reg.html' as reg %}#}
+{#        {{ reg.quick_form(form) }}#}
+        {% import 'bootstrap/wtf.html' as wtf %}
+        {{ wtf.quick_form(form) }}
+    {% endblock %}
